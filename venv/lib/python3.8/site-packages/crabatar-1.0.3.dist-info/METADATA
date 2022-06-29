@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: crabatar
+Version: 1.0.3
+Summary: Generate crab-themed avatars procedurally from usernames.
+Home-page: https://github.com/jakeledoux/crabatar
+Author: Jake Ledoux
+Author-email: contactjakeledoux@gmail.com
+License: GNU General Public License v2.0
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: gizeh
+Requires-Dist: Pillow
+
+# Crabatar
+![Codecov](https://img.shields.io/codecov/c/github/jakeledoux/crabatar)
+![Python package](https://github.com/jakeledoux/crabatar/workflows/Python%20package/badge.svg)
+![PyPI](https://img.shields.io/pypi/v/crabatar)
+
+Generate crab-themed avatars procedurally from usernames.
+
+*Developed for [Crabber](https://github.com/jakeledoux/crabber/)*
+
+## Installation
+
+``` bash
+pip install crabatar
+```
+
+![Sample Avatars](sample.png)
+
+
