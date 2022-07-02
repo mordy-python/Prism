@@ -1,16 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="{{url_for('static', filename='colors.css')}}">
-    <title>Prism</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="{{url_for('static', filename='colors.css')}}">
+  <title>Prism</title>
 </head>
-<body>
-    <div class="w3-bar w3-theme">
-        <a href="#" class="w3-bar-item">Home</a>
+<body class="w3-theme">
+  <div class="row">
+    <div class="right-side w3-col m4 l3">
+      <div class="link logo">
+        <h1>Prism</h1>
+      </div>
+      <div class='link'>
+        <span class="material-icons">home</span>
+        <a href="{{url_for('index')}}">Home</a>
+      </div>
+      <div class="link">
+        <span class="material-icons">tag</span>
+        <a href="{{url_for('index')}}">Explore</a>
+      </div>
+      <div class='link'>
+        <span class="material-icons">person</span>
+        <a href="{{url_for('index')}}">Profile</a>
+      </div>
+      <div class='link'>
+        <span class="material-icons">settings</span>
+        <a href="{{url_for('index')}}">Settings</a>
+      </div>
     </div>
+    <div class="w3-col m4 l6 container">
+      {% block content %}
+      {% endblock content %}
+    </div>
+    <div class="left-side w3-col m4 l3">
+      <h1>i</h1>
+    </div>
+  </div>
 </body>
+
 </html>
