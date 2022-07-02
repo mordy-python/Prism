@@ -29,12 +29,13 @@
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     padding-top: 10px;
 }
 
 .left-side {
     border-left: 1px solid #3c3c5f;
+    padding: 10px 5px;
 }
 
 .w3-col {
@@ -44,23 +45,24 @@
 .link a {
     text-decoration: none;
     margin-left: 5px;
-    font-size: 1.5em;
+    font-size: 1.2em;
 }
 .material-icons {
-    font-size: 1.5em;
+    font-size: 1.2em;
 }
 .link {
+    margin-left: 5px;
     width: 50%;
     display: flex;
     justify-content: flex-start;
-    padding: 10px;
+    padding: 8px;
     border-radius: 10px;
     transition: 0.5s;
     align-items: center;
-    color: #5e5e96;
+    color: #aea8d3;
 }
 .link:hover {
-    background-color: #5e5e96;
+    background-color: #aea8d3;
     color: #191928;
 }
 .logo {
@@ -70,6 +72,7 @@
     color: transparent;  */
     padding: 5px;
 }
+
 .post-box {
     border: none;
     width: 100%;
@@ -95,4 +98,95 @@
     border: none;
     width: 10%;
     cursor: pointer;
+}
+.card {
+    border: 1px solid #3c3c5f;
+    border-radius: 10px;
+}
+hr {
+    border: 1px solid #3c3c5f;
+}
+.follow-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px;
+}
+
+.follow-avatar {
+    width: 50px;
+    height: auto;
+    border-radius: 50%;
+}
+.follow-btn {
+    text-decoration: none;
+    background-color: #5e5e96;
+    color: var(--text-color);
+    padding: 5px;
+    border-radius: 10px;
+    transition: .5s;
+}
+.follow-btn:hover {
+    background-color: #5e5e96;
+    color: #191928;
+}
+.page-header {
+    color: #aea8d3;
+}
+.auth-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    width: 30%;
+    margin: auto;
+}
+.person {
+    font-size: 64px;
+    background-color: #5e5e96;
+    border-radius: 50%;
+    padding: 5px;
+}
+.form-input {
+    border: 1px solid #5e5e96;
+    background-color: transparent;
+    display: block;
+    margin: 5px;
+    padding: 5px;
+    color: #aea8d3;
+    border-radius: 10px;
+    width: 100%;
+    outline: none;
+}
+.form-input::placeholder {
+    color: #aea8d3;
+}
+.form-submit {
+    border: 1px solid #5e5e96;
+    background-color: #aea8d3;
+    color: #191928;
+    display: block;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 10px;
+    width: 100%;
+    outline: none;
+}
+.ray {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+}
+.controls {
+    margin: 5px;
+}
+.ray-content {
+    display: flex;
+    align-items: center;
+}
+.pfp {
+    width: 50px;
+    height: auto;
+    border-radius: 50%;
+    margin: 8px;
 }

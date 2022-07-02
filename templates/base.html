@@ -10,9 +10,10 @@
   <link rel="stylesheet" href="{{url_for('static', filename='colors.css')}}">
   <title>Prism</title>
 </head>
+
 <body class="w3-theme">
   <div class="row">
-    <div class="right-side w3-col m4 l3">
+    <div class="right-side w3-col m4 l2">
       <div class="link logo">
         <h1>Prism</h1>
       </div>
@@ -33,12 +34,26 @@
         <a href="{{url_for('index')}}">Settings</a>
       </div>
     </div>
-    <div class="w3-col m4 l6 container">
+    <div class="w3-col m4 l7 container">
       {% block content %}
       {% endblock content %}
     </div>
     <div class="left-side w3-col m4 l3">
-      <h1>i</h1>
+      <div class="w3-card card">
+        <div class="follow-box">
+          <img class="follow-avatar"
+            src="https://cdn.discordapp.com/avatars/845345000816377876/c39d7fc4eaeed2b150faabe40ce33ac1.webp?size=240" />
+          <h4>The Jokers</h4>
+          <a href="#" class="follow-btn">Follow</a>
+        </div>
+        <hr>
+        <div class="follow-box">
+          <img class="follow-avatar"
+            src="https://cdn.discordapp.com/avatars/845345000816377876/c39d7fc4eaeed2b150faabe40ce33ac1.webp?size=240" />
+          <h4>The Jokers</h4>
+          <a href="#" class="follow-btn">Follow</a>
+        </div>
+      </div>
     </div>
   </div>
 </body>
