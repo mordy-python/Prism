@@ -1,29 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{{url_for('static', filename='colors.css')}}">
     <title>Prism - Sign Up</title>
 </head>
+
 <body class="w3-theme">
+    {% with messages = get_flashed_messages() %}
+        {% for message in messages %}
+            {{message}}
+        {% endfor %}
+    {% endwith %}
     <h1 align="center" class="page-header">Sign Up</h1>
     <div class="w3-card card auth-card">
-        <div class="material-icons person">person</div>
-        <form>
+        <!-- <a href="https://www.flaticon.com/free-icons/anonymous" title="anonymous icons">Anonymous icons created by Pixel perfect - Flaticon</a> -->
+        <img src="{{url_for('static', filename='anonymous.png')}}" alt="Profile Picture" class="person" id="pfp">
+        <form method="post">
             <input required class="form-input" name="email" type="email" placeholder="Email">
-            <input required class="form-input" name="username" type="text" placeholder="Username">
+            <input required class="form-input" name="username" type="text" placeholder="Username"
+                oninput="get_pfp(this);">
             <input required class="form-input" type="password" name="password1" placeholder="Password">
             <input required class="form-input" name="password2" type="password" placeholder="Confirm password">
             <div class="tos">
-                <input required type="checkbox"/>
-                <small>I agree to the <a href="{{url_for('static', filename='PP.html')}}">Privacy Policy</a> and <a href="{{url_for('static', filename='TOS.html')}}">Terms of Service</a></small>
+                <input required type="checkbox" />
+                <small>I agree to the <a href="{{url_for('static', filename='PP.html')}}">Privacy Policy</a> and <a
+                        href="{{url_for('static', filename='TOS.html')}}">Terms of Service</a></small>
             </div>
-            <input type="submit" value="Log In" class="form-submit"/>
+            <input type="submit" value="Sign Up" class="form-submit" />
+            <p class="question">Already have an account? <a href="{{url_for('login')}}">Login here</a></p>
         </form>
     </div>
+    <script>
+        base_url = "https://avatars.dicebear.com/api/micah/"
+        function get_pfp(input) {
+            uname = input.value;
+            document.getElementById("pfp").src = `${base_url}${uname}.svg`;
+        }
+    </script>
 </body>
+
 </html>

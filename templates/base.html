@@ -12,6 +12,11 @@
 </head>
 
 <body class="w3-theme">
+  {% with messages = get_flashed_messages() %}
+    {% for message in messages %}
+      {{message}}
+    {% endfor %}
+  {% endwith %}
   <div class="row">
     <div class="right-side w3-col m4 l2">
       <div class="link logo">
@@ -26,12 +31,16 @@
         <a href="{{url_for('index')}}">Explore</a>
       </div>
       <div class='link'>
-        <span class="material-icons">person</span>
+        <img style="width: 18px; height: auto;background-color: #aea8d3;border-radius: 50%;" src="{{session['pfp']}}">
         <a href="{{url_for('index')}}">Profile</a>
       </div>
       <div class='link'>
         <span class="material-icons">settings</span>
         <a href="{{url_for('index')}}">Settings</a>
+      </div>
+      <div class='link'>
+        <span class="material-icons">logout</span>
+        <a href="{{url_for('logout')}}">Log Out</a>
       </div>
     </div>
     <div class="w3-col m4 l7 container">
@@ -40,19 +49,15 @@
     </div>
     <div class="left-side w3-col m4 l3">
       <div class="w3-card card">
+        {% for account in to_follow %}
         <div class="follow-box">
           <img class="follow-avatar"
-            src="https://cdn.discordapp.com/avatars/845345000816377876/c39d7fc4eaeed2b150faabe40ce33ac1.webp?size=240" />
-          <h4>The Jokers</h4>
+            src="{{account.avatar_url}}" />
+          <h4>{{account.username}}</h4>
           <a href="#" class="follow-btn">Follow</a>
         </div>
         <hr>
-        <div class="follow-box">
-          <img class="follow-avatar"
-            src="https://cdn.discordapp.com/avatars/845345000816377876/c39d7fc4eaeed2b150faabe40ce33ac1.webp?size=240" />
-          <h4>The Jokers</h4>
-          <a href="#" class="follow-btn">Follow</a>
-        </div>
+        {% endfor %}
       </div>
     </div>
   </div>

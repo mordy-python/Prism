@@ -14,8 +14,9 @@ users = deta.Base("users")
 
 @app.route("/")
 def index():
+    to_follow = users.fetch(limit=3).items
     if "username" in session:
-        return render_template("index.html")
+        return render_template("index.html", to_follow=to_follow)
     else:
         return redirect(url_for("login"))
 

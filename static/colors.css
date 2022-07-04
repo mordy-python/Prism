@@ -45,7 +45,7 @@
 .link a {
     text-decoration: none;
     margin-left: 5px;
-    font-size: 1.2em;
+    font-size: 1.2rem;
 }
 .material-icons {
     font-size: 1.2em;
@@ -142,7 +142,8 @@ hr {
     margin: auto;
 }
 .person {
-    font-size: 64px;
+    width: 64px;
+    height: 64px;
     background-color: #5e5e96;
     border-radius: 50%;
     padding: 5px;
@@ -171,6 +172,7 @@ hr {
     border-radius: 10px;
     width: 100%;
     outline: none;
+    cursor: pointer;
 }
 .ray {
     display: flex;
@@ -183,6 +185,10 @@ hr {
 .ray-content {
     display: flex;
     align-items: center;
+}
+.question {
+    padding: 5px;
+    font-size: .75em;
 }
 .pfp {
     width: 50px;

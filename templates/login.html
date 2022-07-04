@@ -10,12 +10,18 @@
     <title>Prism - Login</title>
 </head>
 <body class="w3-theme">
+    {% with messages = get_flashed_messages() %}
+        {% for message in messages %}
+            {{message}}
+        {% endfor %}
+    {% endwith %}
     <h1 align="center" class="page-header">Login</h1>
     <div class="w3-card card auth-card">
-        <div class="material-icons person">person</div>
-        <form>
+        <img src="{{url_for('static', filename='anonymous.png')}}" alt="Profile Picture" class="person">
+        <form method="post">
             <input required class="form-input" name="email" type="email" placeholder="Email">
             <input required class="form-input" type="password" name="password" placeholder="Password">
+            <p class="question">Don't have an account? <a href="{{url_for('signup')}}">Sign up here</a></p>
             <input type="submit" value="Log In" class="form-submit"/>
         </form>
     </div>
