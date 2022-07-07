@@ -1,16 +1,52 @@
 {% extends 'base.html' %}
 {% block content %}
-<form class="post-box">
-  <input type="text" class="post-input" placeholder="Say something..." name="content" required>
-  <button type="submit" class="post-share"><span class="material-icons">send</span></button>
+<form class="post-box" id="raypost">
+    <input type="text" class="post-input" placeholder="Say something..." name="content" required id="content" autocomplete="off">
+    <button type="submit" class="post-share"><span class="material-icons">send</span></button>
 </form>
-<div class="ray">
-    <div class="ray-content">
-        <img class="pfp" src="{{session['pfp']}}">
-        <p class="content">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae</p>
+<div class="rays" id="rays">
+    {% for ray in posted %}
+    <div class="ray" id="ray-{{ray.id}}">
+        <img src="{{ray.owner_data.pfp}}" alt="{{ray.owner_data.username}}'s profile picture">
+        <div class="ray-content">
+            <h5 class="ray-owner"><a href="{{url_for('profile', userId=ray.owner_data.id)}}">{{ray.owner_data.username}}</a></h5>
+            <p>{{ray.content}}</p>
+            <!-- <div class="ray-buttons">
+                <a class="material-icons" onclick="like();">favorite</a>
+                <a href="" class="material-icons">reply</a>
+            </div> -->
+        </div>
     </div>
-    <div class="controls">
-        <span class="material-icons">favorite</span>
-    </div>
+    {% endfor %}
 </div>
+<script>
+    form = document.getElementById("raypost");
+    form.addEventListener('submit', save_post);
+    input = document.getElementById('content');
+    rays = document.getElementById('rays');
+    function save_post(e) {
+        e.preventDefault();
+        fetch('/save-post', { method: 'POST', body: new FormData(form) })
+            .then((res) => res.json())
+            .then((data) => {
+                input.value = '';
+                var ray = document.createElement("div");
+                ray.setAttribute('id', `ray-${data.id}`);
+                ray.innerHTML = `<div class="ray" id="ray-${data.id}">
+        <img src="${data.owner_data.pfp}" alt="${data.owner_data.username}'s profile picture">
+        <div class="ray-content">
+            <h5 class="ray-owner"><a href="/profile/${data.owner_data.id}">${data.owner_data.username}</a></h5>
+            <p>${data.content}</p>
+            <!-- <div class="ray-buttons">
+                 <a href="" class="material-icons">reply</a>
+            </div> -->
+        </div>
+    </div>`
+                rays.insertBefore(ray, rays.firstChild);
+            });
+    }
+    function like(postId) {
+
+    }
+</script>
 {% endblock content %}

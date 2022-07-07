@@ -8,19 +8,21 @@
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="{{url_for('static', filename='colors.css')}}">
-  <title>Prism</title>
+  <title>{{title}} - Fwitter</title>
 </head>
 
 <body class="w3-theme">
   {% with messages = get_flashed_messages() %}
-    {% for message in messages %}
-      {{message}}
-    {% endfor %}
+  {% for message in messages %}
+  <div class="flashed">
+    {{message}}
+  </div>
+  {% endfor %}
   {% endwith %}
   <div class="row">
-    <div class="right-side w3-col m4 l2">
+    <div class="right-side w3-col m4 l2" style="position: fixed;">
       <div class="link logo">
-        <h1>Prism</h1>
+        <h1>Fwitter</h1>
       </div>
       <div class='link'>
         <span class="material-icons">home</span>
@@ -32,7 +34,7 @@
       </div>
       <div class='link'>
         <img style="width: 18px; height: auto;background-color: #aea8d3;border-radius: 50%;" src="{{session['pfp']}}">
-        <a href="{{url_for('index')}}">Profile</a>
+        <a href="{{url_for('profile', userId=session.id)}}">Profile</a>
       </div>
       <div class='link'>
         <span class="material-icons">settings</span>
@@ -43,17 +45,16 @@
         <a href="{{url_for('logout')}}">Log Out</a>
       </div>
     </div>
-    <div class="w3-col m4 l7 container">
+    <div class="w3-col m4 l7 container" style="position: absolute;left:16.7%;">
       {% block content %}
       {% endblock content %}
     </div>
-    <div class="left-side w3-col m4 l3">
+    <div class="left-side w3-col m4 l3" style="position: fixed;left: 75%;">
       <div class="w3-card card">
         {% for account in to_follow %}
         <div class="follow-box">
-          <img class="follow-avatar"
-            src="{{account.avatar_url}}" />
-          <h4>{{account.username}}</h4>
+          <img class="follow-avatar" src="{{account.avatar_url}}" />
+          <h4><a href="{{url_for('profile', userId=account.key)}}" class="account-link">{{account.username}}</a></h4>
           <a href="#" class="follow-btn">Follow</a>
         </div>
         <hr>

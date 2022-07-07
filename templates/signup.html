@@ -8,14 +8,14 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{{url_for('static', filename='colors.css')}}">
-    <title>Prism - Sign Up</title>
+    <title>Sign Up - Fwitter</title>
 </head>
 
 <body class="w3-theme">
     {% with messages = get_flashed_messages() %}
-        {% for message in messages %}
-            {{message}}
-        {% endfor %}
+    {% for message in messages %}
+    <div class="flashed">{{message}}</div>
+    {% endfor %}
     {% endwith %}
     <h1 align="center" class="page-header">Sign Up</h1>
     <div class="w3-card card auth-card">
@@ -27,6 +27,7 @@
                 oninput="get_pfp(this);">
             <input required class="form-input" type="password" name="password1" placeholder="Password">
             <input required class="form-input" name="password2" type="password" placeholder="Confirm password">
+            <input class="form-input" name="style" id="style-input" style="display: none;">
             <div class="tos">
                 <input required type="checkbox" />
                 <small>I agree to the <a href="{{url_for('static', filename='PP.html')}}">Privacy Policy</a> and <a
@@ -37,10 +38,18 @@
         </form>
     </div>
     <script>
-        base_url = "https://avatars.dicebear.com/api/micah/"
+        function get_random(list){
+            var index = Math.floor(Math.random() * list.length);
+            const item = list[index];
+            return item;
+        }
         function get_pfp(input) {
+            styles = ['micah', 'adventurer', 'croodles', 'open-peeps', 'personas', 'big-ears', 'avataaars'];
+            const style = get_random(styles);
+            base_url = `https://avatars.dicebear.com/api/${style}/`;
             uname = input.value;
             document.getElementById("pfp").src = `${base_url}${uname}.svg`;
+            document.getElementById("style-input").value = style;
         }
     </script>
 </body>

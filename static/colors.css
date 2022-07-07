@@ -98,6 +98,10 @@
     border: none;
     width: 10%;
     cursor: pointer;
+    transition: 1s;
+}
+.post-share:active {
+    background-color: #3c3c5f;
 }
 .card {
     border: 1px solid #3c3c5f;
@@ -174,18 +178,6 @@ hr {
     outline: none;
     cursor: pointer;
 }
-.ray {
-    display: flex;
-    flex-direction: column;
-    margin: 5px;
-}
-.controls {
-    margin: 5px;
-}
-.ray-content {
-    display: flex;
-    align-items: center;
-}
 .question {
     padding: 5px;
     font-size: .75em;
@@ -195,4 +187,63 @@ hr {
     height: auto;
     border-radius: 50%;
     margin: 8px;
+}
+.header {
+    background-color: #141421;
+    display: flex;
+    align-items: center;
+}
+.header-uname {
+    font-size: 3rem;
+    color: #aea8d3;
+}
+.header-image {
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+}
+.account-link {
+    text-decoration: none;
+    color: #aea8d3;
+    transition: 1s;
+}
+.ray {
+    background: #171725;
+    display: flex;
+    border-bottom: 1px solid #0d0d14;
+    align-items: center;
+}
+.ray-content {
+    width: 100%;
+}
+.ray-buttons {
+    margin: auto;
+    cursor: pointer;
+    /* width: 50%; */
+    color: #9292bb;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+.ray-buttons a {
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.5em;
+}
+.ray img {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+}
+.ray-owner {
+    color: #aea8d3;
+}
+.flashed {
+    border: 1px solid #12121d;
+    background: #141421;
+    text-align: center;
+    padding: 5px;
+    border-radius: 10px;
+    position: absolute;
+    left: 38%;
 }
