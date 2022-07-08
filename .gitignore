@@ -2,4 +2,4 @@ venv
 *.lock
 .env
 pyproject.toml
-*.exe
+config.toml
