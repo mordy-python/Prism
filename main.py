@@ -35,7 +35,7 @@ def to_follow():
 
 def get_rays(owner=None):
     if owner:
-        return sorted(rays.fetch({"owner": owner}).items, key=lambda x: x['date_posted'], reverse=True)
+        return sorted(rays.fetch({"owner_data.id": owner}).items, key=lambda x: x['date_posted'], reverse=True)
     return sorted(rays.fetch().items, key=lambda x: x['date_posted'], reverse=True)
 
 def get_owner_data(id):

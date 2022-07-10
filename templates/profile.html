@@ -4,4 +4,19 @@
         <img src="{{avatar_url}}" class="header-image"/>
         <h1 class="header-uname">{{username}}</h1>
     </div>
+    <div class="rays" id="rays">
+        {% for ray in rays %}
+        <div class="ray" id="ray-{{ray.id}}">
+            <img src="{{ray.owner_data.pfp}}" alt="{{ray.owner_data.username}}'s profile picture">
+            <div class="ray-content">
+                <h5 class="ray-owner"><a href="{{url_for('profile', userId=ray.owner_data.id)}}">{{ray.owner_data.username}}</a></h5>
+                <p>{{ray.content}}</p>
+                <!-- <div class="ray-buttons">
+                    <a class="material-icons" onclick="like();">favorite</a>
+                    <a href="" class="material-icons">reply</a>
+                </div> -->
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 {% endblock content %}
